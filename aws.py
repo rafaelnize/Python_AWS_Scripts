@@ -4,7 +4,8 @@ from pprint import pprint
 
 
 class EC2Instances:
-
+    def __init__(self):
+        ''' EC2Instance Constructor '''
 
     def get_instances(self,conn):
         ''' List Ec2 Instances'''
