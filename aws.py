@@ -53,7 +53,6 @@ class EC2Instances:
         print "Total of instances found: " + str(len(sorted_instances))
 
 
-
     def list_all_instances(self, conn):
 
         instances = self.get_instances(conn)
@@ -65,16 +64,17 @@ class EC2Instances:
 
             if 'Name' in tags:
                 instancename = tags['Name']
-
+            #print instance.__dict__
             print "Instance Name:", instancename, ' Instance Id:'\
-                , instance.id, " State:", instance.state
+                , instance.id, " State:", instance.state, " IP: ", instance.private_ip_address
 
 
 def main():
     """docstring"""
     conn = boto.connect_ec2()
     instances = EC2Instances()
-    instances.list_instance_names(conn)
+    #instances.list_instance_names(conn)
+    instances.list_all_instances(conn)
     # instances.list_instances(conn)
 
 
